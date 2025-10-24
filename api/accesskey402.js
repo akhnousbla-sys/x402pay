@@ -12,11 +12,9 @@ export default function handler(req, res) {
         resource: "https://x402pay-rho.vercel.app/api/mint",
         payTo: "0x9dc9eD28361cCC251549b56E9F187d464263a4B3",
         mimeType: "application/json",
-        asset: "https://i.imgur.com/hAkRxli.png",
-
-        // ✅ try this string value — accepted by latest x402scan versions
-        maxAmountRequired: "required",
-
+        asset: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", // ✅ USDC (Base)
+        // x402 expects atomic units for amount — 2 USDC = 2 * 10^6 = "2000000"
+        maxAmountRequired: "2000000",
         maxTimeoutSeconds: 30,
         price: {
           amount: "2",
@@ -24,23 +22,22 @@ export default function handler(req, res) {
           currency: "USDC",
           chain: "base",
         },
-
         outputSchema: {
           input: {
             type: "http",
             method: "POST",
-            bodyType: "json",
+            bodyType: "json"
           },
           output: {
             type: "object",
             properties: {
               success: { type: "boolean" },
-              txHash: { type: "string" },
-            },
-          },
-        },
-      },
+              txHash: { type: "string" }
+            }
+          }
+        }
+      }
     ],
-    payer: "dynamic",
+    payer: "dynamic"
   });
 }
