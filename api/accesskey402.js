@@ -14,14 +14,13 @@ export default function handler(req, res) {
         mimeType: "application/json",
         asset: "https://i.imgur.com/hAkRxli.png",
 
-        // ✅ must be string, not boolean
-        maxAmountRequired: "true",
-        maxTimeoutSeconds: 30,
+        // ✅ try this string value — accepted by latest x402scan versions
+        maxAmountRequired: "required",
 
-        // ✅ x402scan uses these values to show price
+        maxTimeoutSeconds: 30,
         price: {
-          amount: "2",         // amount in token
-          amountUSD: "2",      // optional, ensures "$2.00" shows up
+          amount: "2",
+          amountUSD: "2",
           currency: "USDC",
           chain: "base",
         },
@@ -30,18 +29,18 @@ export default function handler(req, res) {
           input: {
             type: "http",
             method: "POST",
-            bodyType: "json"
+            bodyType: "json",
           },
           output: {
             type: "object",
             properties: {
               success: { type: "boolean" },
-              txHash: { type: "string" }
-            }
-          }
-        }
-      }
+              txHash: { type: "string" },
+            },
+          },
+        },
+      },
     ],
-    payer: "dynamic"
+    payer: "dynamic",
   });
 }
