@@ -1,4 +1,4 @@
-// api/accesskey402.js
+// /api/accesskey402.js
 export default function handler(req, res) {
   res.status(402).json({
     x402Version: 1,
@@ -9,11 +9,11 @@ export default function handler(req, res) {
         name: "AccessKey402 NFT Mint",
         description:
           "AccessKey402 is a collection of 6,666 digital keys granting access to the x402 ecosystem.",
-        resource: "https://x402pay-rho.vercel.app/api/mint", // mint endpoint
-        payTo: "0x9dc9eD28361cCC251549b56E9F187d464263a4B3", // your wallet
+        resource: "https://x402pay-rho.vercel.app/api/mint",
+        payTo: "0x9dc9eD28361cCC251549b56E9F187d464263a4B3",
         mimeType: "application/json",
-        image: "https://i.imgur.com/hAkRxli.png", // your NFT image
-        maxAmountRequired: true, // ✅ boolean (not string!)
+        image: "https://i.imgur.com/hAkRxli.png",
+        maxAmountRequired: true,
         maxTimeoutSeconds: 30,
         price: {
           amount: "2",
@@ -24,23 +24,16 @@ export default function handler(req, res) {
           input: {
             type: "http",
             method: "POST",
-            bodyType: "json",
-            bodyFields: {
-              wallet: {
-                type: "string",
-                required: true,
-                description: "Wallet address of the minter",
-              },
-            },
+            bodyType: "json"
           },
           output: {
             type: "object",
             properties: {
               success: { type: "boolean" },
-              txHash: { type: "string" },
-            },
-          },
-        },
+              txHash: { type: "string" }
+            }
+          }
+        }
       },
     ],
     payer: "dynamic",
