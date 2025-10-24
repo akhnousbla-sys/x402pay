@@ -11,16 +11,15 @@ export default function handler(req, res) {
           "AccessKey402 is a collection of 6,666 digital keys granting access to the x402 ecosystem.",
         resource: "https://x402pay-rho.vercel.app/api/accesskey402/mint",
         payTo: "0x9dc9eD28361cCC251549b56E9F187d464263a4B3",
-        asset: "https://accesskey402.xyz/logo.png",
+        image: "https://i.imgur.com/hAkRxli.png",
         mimeType: "application/json",
-        maxAmountRequired: "",
+        maxAmountRequired: "true",
         maxTimeoutSeconds: 30,
         price: {
           amount: "2",
           currency: "USDC",
           chain: "base",
         },
-        // 👇 this tells x402scan how to mint
         outputSchema: {
           input: {
             type: "http",
