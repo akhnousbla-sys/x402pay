@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  res.status(200).json({
+  res.status(402).json({
     x402Version: 1,
     accepts: [
       {
