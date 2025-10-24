@@ -9,38 +9,36 @@ export default function handler(req, res) {
         name: "AccessKey402 NFT Mint",
         description:
           "AccessKey402 is a collection of 6,666 digital keys granting access to the x402 ecosystem.",
-        // mint endpoint used by x402scan after payment
         resource: "https://x402pay-rho.vercel.app/api/mint",
-        // receiver wallet for the payment
         payTo: "0x9dc9eD28361cCC251549b56E9F187d464263a4B3",
         mimeType: "application/json",
-        // use a direct image URL (required for validation)
+        // ✅ asset is required for display
         asset: "https://i.imgur.com/hAkRxli.png",
-        // NOTE: x402scan expects a string here in your setup
-        maxAmountRequired: "true",
+        // ✅ Boolean (not string)
+        maxAmountRequired: true,
         maxTimeoutSeconds: 30,
         price: {
           amount: "2",
           currency: "USDC",
           chain: "base",
         },
-        // No bodyFields => UI will NOT ask user for wallet
+        // No wallet input field — x402scan handles it automatically
         outputSchema: {
           input: {
             type: "http",
             method: "POST",
-            bodyType: "json"
+            bodyType: "json",
           },
           output: {
             type: "object",
             properties: {
               success: { type: "boolean" },
-              txHash: { type: "string" }
-            }
-          }
-        }
-      }
+              txHash: { type: "string" },
+            },
+          },
+        },
+      },
     ],
-    payer: "dynamic"
+    payer: "dynamic",
   });
 }
