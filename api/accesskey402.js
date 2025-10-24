@@ -1,3 +1,4 @@
+// api/accesskey402.js
 export default function handler(req, res) {
   res.status(402).json({
     x402Version: 1,
@@ -12,7 +13,7 @@ export default function handler(req, res) {
         payTo: "0x9dc9eD28361cCC251549b56E9F187d464263a4B3",
         asset: "https://accesskey402.xyz/logo.png",
         mimeType: "application/json",
-        maxAmountRequired: "false",
+        maxAmountRequired: "",
         maxTimeoutSeconds: 30,
         price: {
           amount: "2",
