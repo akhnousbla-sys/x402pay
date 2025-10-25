@@ -5,5 +5,7 @@
   "scripts": {
     "start": "vercel dev"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@coinbase/x402": "^0.6.6"
+  }
 }
